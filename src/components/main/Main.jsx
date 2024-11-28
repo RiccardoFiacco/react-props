@@ -7,9 +7,9 @@ export function Main() {
     <div className={`${style.bgcolor_lightGrey} ${style.flex_grow_1}`}>
       <Container>
         <Row className={[style.justify_center, style.align_center, style.padding_top_50]}>
-          {posts.map((el, i)=>{
+          {posts.map((el)=>{
             return(
-              <div key = {i} className="col-12 col-sm-6 col-md-4 col-xl-2">
+              <>
               { el.published && 
               <PostCard 
                 id= {el.id}
@@ -19,7 +19,7 @@ export function Main() {
                 tags = {el.tags}
                 published = {el.published}/>
               } 
-             </div> 
+             </> 
             )
           })}
         </Row>
