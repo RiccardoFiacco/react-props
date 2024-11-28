@@ -24,14 +24,7 @@ function getCssTags(tag) {
 }
 
 export function PostCard(props) {
-  const {
-    id = "",
-    title = "",
-    image = "",
-    content = "",
-    tags = [],
-    published = false,
-  } = props;
+  const {id = "", title = "", image = "", content = "", tags = [], published = false} = props;
 
   return (
     <div className="col-4">
@@ -39,10 +32,12 @@ export function PostCard(props) {
         <img src={image ? image : sconsolato} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
+          
           <p>
             {tags.length != 0 ? tags.map((tag) => (
-              <span key={tag} style={getCssTags(tag)}>{tag}</span>
+              <>&nbsp;<span key={tag} style={getCssTags(tag)}> {tag} </span>&nbsp;</>
             )) : <span>niente tags</span>}
+           
           </p>
           <p className="card-text">{content}</p>
           <a href="#" className="btn btn-primary">
