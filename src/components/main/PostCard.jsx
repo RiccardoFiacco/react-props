@@ -1,15 +1,23 @@
 
-
-
-export function PostCard(){
+export function PostCard(props){
+    const {id = '', title = '', image = '', content = '', tags = [], published = false} = props;
+    console.log(props)
     return(
-        <div className="card">
-            <img src="..." className="card-img-top" alt="..."/>
+        <div className="card" id={`${id}`}>
+            <img src={image} className="card-img-top" alt="..."/>
             <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title">{title}</h5>
+                <p>{
+                tags.map((el)=>{
+                    return(
+                        <span key={el} > {el}</span>
+                    )
+                })
+                }</p>
+                <p className="card-text">{content}</p>
+                <a href="#" className="btn btn-primary">add</a>
             </div>
         </div>
+    
     )
 }
