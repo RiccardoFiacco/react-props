@@ -1,4 +1,23 @@
 import gto from './assets/gto2.jpg'
+const lenguage = ['html', 'css', 'js', 'php'] 
+let max = 3;
+
+function nRandom(max){
+	const random = Math.floor(Math.random()*max)+1;
+	return random
+}
+
+function createArr(array){
+	let finalArr = [];
+	for(let i=0; i<4;i++){
+		let num = nRandom(max);
+		if(!finalArr.includes(array[num])){
+			finalArr.push(array[num]);
+		}
+	}
+	return finalArr;
+}
+
 export const posts = [
 	{
 		id: 1,
@@ -6,7 +25,7 @@ export const posts = [
 		image: gto,
 		content:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
-		tags: ['html', 'css'],
+		tags: createArr(lenguage),
 		published: true,
 	},
 	{
@@ -15,7 +34,7 @@ export const posts = [
 		image: gto,
 		content:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
-		tags: ['js', 'css'],
+		tags: createArr(lenguage),
 		published: true,
 	},
 	{
@@ -24,7 +43,7 @@ export const posts = [
 		image: '',
 		content:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
-		tags: ['js', 'php'],
+		tags: createArr(lenguage),
 		published: true,
 	},
 	{
@@ -33,7 +52,7 @@ export const posts = [
 		image: gto,
 		content:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
-		tags: ['html'],
+		tags: createArr(lenguage),
 		published: false,
 	},
 ]

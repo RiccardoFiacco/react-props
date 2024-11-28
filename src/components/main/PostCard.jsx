@@ -35,7 +35,7 @@ export function PostCard(props) {
           
           <p>
             {tags.length != 0 ? tags.map((tag) => (
-              <>&nbsp;<span key={tag} style={getCssTags(tag)}> {tag} </span>&nbsp;</>
+              <span key={tag}>&nbsp;<span  style={getCssTags(tag)}> {tag} </span>&nbsp;</span>
             )) : <span>niente tags</span>}
            
           </p>
