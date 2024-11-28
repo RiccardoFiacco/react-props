@@ -10,14 +10,16 @@ export function Main() {
           {posts.map((el, i)=>{
             return(
               <div key = {i} className="col-12 col-sm-6 col-md-4 col-xl-2">
-                <PostCard 
+              { el.published && 
+              <PostCard 
                 id= {el.id}
                 title = {el.title}
                 image = {el.image}
                 content = {el.content}
                 tags = {el.tags}
                 published = {el.published}/>
-              </div> 
+              } 
+             </div> 
             )
           })}
         </Row>
