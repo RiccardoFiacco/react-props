@@ -1,23 +1,55 @@
+import sconsolato from "../../assets/sconsolato.jpg"
 
-export function PostCard(props){
-    const {id = '', title = '', image = '', content = '', tags = [], published = false} = props;
-    console.log(props)
-    return(
-        <div className="card" id={`${id}`}>
-            <img src={image} className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p>{
-                tags.map((el)=>{
-                    return(
-                        <span key={el} > {el}</span>
-                    )
-                })
-                }</p>
-                <p className="card-text">{content}</p>
-                <a href="#" className="btn btn-primary">add</a>
-            </div>
+function getCssTags(tag) {
+  switch (tag) {
+    case "html":
+      return {
+        backgroundColor: "#FE4C1E",
+      };
+    case "css":
+      return{
+        backgroundColor: "#0071BF",
+    };
+    case "js":
+      return{
+        backgroundColor: "#F7DF1E",
+    };
+    case "php":
+      return{
+        backgroundColor: "#777BB3",
+    };
+    default:
+      return {};
+  }
+}
+
+export function PostCard(props) {
+  const {
+    id = "",
+    title = "",
+    image = "",
+    content = "",
+    tags = [],
+    published = false,
+  } = props;
+
+  return (
+    <div className="col-4">
+      <div className="card" id={`${id}`}>
+        <img src={image ? image : sconsolato} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p>
+            {tags.length != 0 ? tags.map((tag) => (
+              <span key={tag} style={getCssTags(tag)}>{tag}</span>
+            )) : <span>niente tags</span>}
+          </p>
+          <p className="card-text">{content}</p>
+          <a href="#" className="btn btn-primary">
+            add
+          </a>
         </div>
-    
-    )
+      </div>
+    </div>
+  );
 }
